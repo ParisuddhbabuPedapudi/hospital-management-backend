@@ -44,13 +44,42 @@ const typeDefs = gql`
     dateOfBirth: Date
   }
 
+  type Doctor {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    phoneNumber: String
+    experiance: Int
+    specialization: String
+    qualification: String
+    isSurgeon: Boolean
+    shifttiming: String
+    email: String!
+    createdAt: Date!
+    updatedAt: Date!
+  }
+
+  input CreateDoctorInput {
+    firstName: String!
+    lastName: String!
+    phoneNumber: String
+    experiance: Int
+    specialization: String
+    qualification: String
+    isSurgeon: Boolean
+    shifttiming: String
+    email: String!
+  }
+
   type Query {
     me: User
+    doctors: [Doctor!]!
   }
 
   type Mutation {
     login(input: LoginInput!): AuthPayload!
     updateProfile(input: UserProfileInput!): User!
+    createDoctor(input: CreateDoctorInput!): Doctor!
   }
 `;
 
