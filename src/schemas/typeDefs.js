@@ -57,6 +57,8 @@ const typeDefs = gql`
     email: String!
     createdAt: Date!
     updatedAt: Date!
+    age: Int!
+    gender: String!
   }
 
   input CreateDoctorInput {
@@ -69,6 +71,8 @@ const typeDefs = gql`
     isSurgeon: Boolean
     shifttiming: String
     email: String!
+    age: Int!
+    gender: String!
   }
 
   type Query {

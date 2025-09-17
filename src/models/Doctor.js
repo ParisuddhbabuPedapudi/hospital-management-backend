@@ -19,11 +19,26 @@ const doctorSchema = new mongoose.Schema({
         return !v || validator.isMobilePhone(v);
       },
       message: 'Please provide a valid phone number'
-    }
+    },
+    trim: true,
+    required: [true, 'Phone number is required']
   },
   experiance: {
     type: Number,
-    min: [0, 'Experiance must be a non-negative number']
+    min: [0, 'Experiance must be a non-negative number'],
+    required: [true, 'Experiance is required']
+  },
+  age: {
+    type: Number,
+    min: [0, 'Age must be a non-negative number'],
+    required: [true, 'Age is required'],
+    default: 0
+  },
+  gender: {
+    type: String,
+    enum:['male', 'female', 'transhender'],
+    required: [true,'gender is required'],
+    default: 'male'
   },
   specialization: {
     type: String,

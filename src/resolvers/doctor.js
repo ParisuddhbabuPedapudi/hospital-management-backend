@@ -18,7 +18,9 @@ const doctorResolvers = {
         qualification: input.qualification,
         isSurgeon: input.isSurgeon,
         shifttiming: input.shifttiming,
-        email: input.email
+        email: input.email,
+        age: input.age,
+        gender: input.gender
       });
       return doctor;
     }
