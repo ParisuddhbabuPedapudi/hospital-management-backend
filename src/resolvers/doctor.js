@@ -5,6 +5,10 @@ const doctorResolvers = {
     doctors: async () => {
       const doctors = await Doctor.find();
       return doctors;
+    },
+    doctor: async (_, { id }) => {
+      const doc = await Doctor.findById(id);
+      return doc;
     }
   },
   Mutation: {
