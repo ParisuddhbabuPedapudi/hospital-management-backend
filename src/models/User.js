@@ -47,37 +47,6 @@ const userSchema = new mongoose.Schema({
       type: String
     }
   },
-  // Doctor specific fields
-  /*doctorInfo: {
-    licenseNumber: String,
-    specialization: String,
-    department: String,
-    experience: Number, // years
-    education: [String],
-    consultationFee: Number,
-    availableSlots: [{
-      day: {
-        type: String,
-        enum: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-      },
-      startTime: String,
-      endTime: String
-    }]
-  },*/
-  // Patient specific fields
-  /*patientInfo: {
-    medicalHistory: [String],
-    allergies: [String],
-    emergencyContact: {
-      name: String,
-      phone: String,
-      relationship: String
-    },
-    insuranceInfo: {
-      provider: String,
-      policyNumber: String
-    }
-  },*/
   isActive: {
     type: Boolean,
     default: true

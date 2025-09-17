@@ -13,7 +13,6 @@ const userResolvers = {
         lastName: input.lastName,
         phone: input.phone,
         dateOfBirth: input.dateOfBirth,
-        department: input.department
       }};
 
       // Allow role update only for admins

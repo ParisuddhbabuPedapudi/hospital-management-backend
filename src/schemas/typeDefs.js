@@ -19,7 +19,6 @@ const typeDefs = gql`
     lastName: String!
     phone: String
     dateOfBirth: Date
-    department: String
   }
 
   enum UserRole {
@@ -43,8 +42,6 @@ const typeDefs = gql`
     lastName: String!
     phone: String
     dateOfBirth: Date
-    department: String
-    role: UserRole
   }
 
   type Query {
