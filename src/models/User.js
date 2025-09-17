@@ -43,16 +43,12 @@ const userSchema = new mongoose.Schema({
     dateOfBirth: {
       type: Date
     },
-    address: {
-      street: String,
-      city: String,
-      state: String,
-      zipCode: String,
-      country: String
+    department: {
+      type: String
     }
   },
   // Doctor specific fields
-  doctorInfo: {
+  /*doctorInfo: {
     licenseNumber: String,
     specialization: String,
     department: String,
@@ -67,9 +63,9 @@ const userSchema = new mongoose.Schema({
       startTime: String,
       endTime: String
     }]
-  },
+  },*/
   // Patient specific fields
-  patientInfo: {
+  /*patientInfo: {
     medicalHistory: [String],
     allergies: [String],
     emergencyContact: {
@@ -81,7 +77,7 @@ const userSchema = new mongoose.Schema({
       provider: String,
       policyNumber: String
     }
-  },
+  },*/
   isActive: {
     type: Boolean,
     default: true
