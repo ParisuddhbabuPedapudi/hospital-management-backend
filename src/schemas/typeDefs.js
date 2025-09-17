@@ -59,6 +59,7 @@ const typeDefs = gql`
     updatedAt: Date!
     age: Int!
     gender: String!
+    isActive: Boolean!
   }
 
   input CreateDoctorInput {
@@ -75,6 +76,20 @@ const typeDefs = gql`
     gender: String!
   }
 
+  input UpdateDoctorInput {
+    firstName: String
+    lastName: String
+    phoneNumber: String
+    experiance: Int
+    specialization: String
+    qualification: String
+    isSurgeon: Boolean
+    shifttiming: String
+    email: String
+    age: Int
+    gender: String
+  }
+
   type Query {
     me: User
     doctors: [Doctor!]!
@@ -84,6 +99,9 @@ const typeDefs = gql`
     login(input: LoginInput!): AuthPayload!
     updateProfile(input: UserProfileInput!): User!
     createDoctor(input: CreateDoctorInput!): Doctor!
+    updateDoctor(id: ID!, input: UpdateDoctorInput!): Doctor!
+    deleteDoctor(id: ID!): Boolean!
+    setDoctorStatus(id: ID!, isActive: Boolean!): Doctor!
   }
 `;
 

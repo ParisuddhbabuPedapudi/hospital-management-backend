@@ -62,6 +62,10 @@ const doctorSchema = new mongoose.Schema({
     unique: true,
     lowercase: true,
     validate: [validator.isEmail, 'Please provide a valid email']
+  },
+  isActive: {
+    type: Boolean,
+    default: true
   }
 }, {
   timestamps: true
