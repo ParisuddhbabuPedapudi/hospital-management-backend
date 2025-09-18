@@ -44,6 +44,74 @@ const typeDefs = gql`
     dateOfBirth: Date
   }
 
+  type EmergencyContact {
+    name: String!
+    relationship: String!
+    emergencyContact: String!
+  }
+
+  input EmergencyContactInput {
+    name: String!
+    relationship: String!
+    emergencyContact: String!
+  }
+  
+  type Patient {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    phoneNumber: String
+    age: Int!
+    gender: String
+    email: String!
+    address: String!
+    city: String!
+    state: String!
+    zipCode: String!
+    createdAt: Date!
+    updatedAt: Date!
+    country: String!
+    bloodGroup: String!
+    assaingnedDoctor: Doctor!
+    emergencyContact: EmergencyContact!
+    isActive: Boolean!
+  }
+
+  input CreatePatientInput {
+  firstName: String!
+  lastName: String!
+  phoneNumber: String
+  email: String!
+  age: Int!
+  gender: String!
+  address: String!
+  city: String!
+  state: String
+  zipCode: String!
+  country: String!
+  bloodGroup: String!
+  assaingnedDoctor: ID!
+  emergencyContact: EmergencyContactInput!
+  }
+
+  input UpdatePatientInput {
+  firstName: String!
+  lastName: String!
+  phoneNumber: String
+  email: String!
+  age: Int!
+  gender: String!
+  address: String!
+  city: String!
+  state: String
+  zipCode: String!
+  
+  country: String!
+  bloodGroup: String!
+  assaingnedDoctor: ID!
+  emergencyContact: EmergencyContactInput!
+  }
+
   type Doctor {
     id: ID!
     firstName: String!
@@ -94,6 +162,7 @@ const typeDefs = gql`
     me: User
     doctors: [Doctor!]!
     doctor(id: ID!): Doctor
+    patients: [Patient!]!
   }
 
   type Mutation {
@@ -103,6 +172,10 @@ const typeDefs = gql`
     updateDoctor(id: ID!, input: UpdateDoctorInput!): Doctor!
     deleteDoctor(id: ID!): Boolean!
     setDoctorStatus(id: ID!, isActive: Boolean!): Doctor!
+    createPatient(input: CreatePatientInput!): Patient!
+    updatePatient(id: ID!, input: UpdatePatientInput!): Patient!
+    deletePatient(id: ID!): Boolean!
+    setPatientStatus(id: ID!, isActive: Boolean!): Patient!
   }
 `;
 
