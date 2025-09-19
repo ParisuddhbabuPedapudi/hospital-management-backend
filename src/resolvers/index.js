@@ -17,6 +17,7 @@ const resolvers = {
     ...authResolvers.Mutation,
     ...userResolvers.Mutation,
     ...doctorResolvers.Mutation,
+    ...patientResolvers.Mutation,
     ...hospitalResolvers.Mutation,
     ...staffResolvers.Mutation,
   },

@@ -55,6 +55,12 @@ const typeDefs = gql`
     relationship: String!
     emergencyContact: String!
   }
+
+  input UpdateEmergencyContactInput {
+    name: String
+    relationship: String
+    emergencyContact: String
+  }
   
   type Patient {
     id: ID!
@@ -95,21 +101,20 @@ const typeDefs = gql`
   }
 
   input UpdatePatientInput {
-  firstName: String!
-  lastName: String!
+  firstName: String
+  lastName: String
   phoneNumber: String
-  email: String!
-  age: Int!
-  gender: String!
-  address: String!
-  city: String!
+  email: String
+  age: Int
+  gender: String
+  address: String
+  city: String
   state: String
-  zipCode: String!
-  
-  country: String!
-  bloodGroup: String!
-  assaingnedDoctor: ID!
-  emergencyContact: EmergencyContactInput!
+  zipCode: String
+  country: String
+  bloodGroup: String
+  assaingnedDoctor: ID
+  emergencyContact: UpdateEmergencyContactInput
   }
 
   type Hospital {
