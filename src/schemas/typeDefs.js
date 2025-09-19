@@ -112,6 +112,43 @@ const typeDefs = gql`
   emergencyContact: EmergencyContactInput!
   }
 
+  type Hospital {
+    id: ID!
+    hospitalName: String!
+    address: String!
+    phoneNumber: String!
+    email: String!
+    website: String
+    numberOfBeds: Int!
+    establishedYear: Int!
+    departments: [String!]!
+    isActive: Boolean!
+    createdAt: Date!
+    updatedAt: Date!
+  }
+
+  input CreateHospitalInput {
+    hospitalName: String!
+    address: String!
+    phoneNumber: String!
+    email: String!
+    website: String
+    numberOfBeds: Int!
+    establishedYear: Int!
+    departments: [String!]!
+  }
+
+  input UpdateHospitalInput {
+    hospitalName: String
+    address: String
+    phoneNumber: String
+    email: String
+    website: String
+    numberOfBeds: Int
+    establishedYear: Int
+    departments: [String!]
+  }
+
   type Doctor {
     id: ID!
     firstName: String!
@@ -163,6 +200,8 @@ const typeDefs = gql`
     doctors: [Doctor!]!
     doctor(id: ID!): Doctor
     patients: [Patient!]!
+    hospitals: [Hospital!]!
+    hospital(id: ID!): Hospital
   }
 
   type Mutation {
@@ -176,6 +215,10 @@ const typeDefs = gql`
     updatePatient(id: ID!, input: UpdatePatientInput!): Patient!
     deletePatient(id: ID!): Boolean!
     setPatientStatus(id: ID!, isActive: Boolean!): Patient!
+    createHospital(input: CreateHospitalInput!): Hospital!
+    updateHospital(id: ID!, input: UpdateHospitalInput!): Hospital!
+    deleteHospital(id: ID!): Boolean!
+    setHospitalStatus(id: ID!, isActive: Boolean!): Hospital!
   }
 `;
 
