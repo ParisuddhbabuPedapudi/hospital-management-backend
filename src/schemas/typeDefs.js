@@ -194,6 +194,30 @@ const typeDefs = gql`
     age: Int
     gender: String
   }
+  type Staff {
+    id: ID!
+    staffType: String!
+    qualification: String
+    experiance: Int!
+    salary: Float!
+    isActive: Boolean!
+    createdAt: Date!
+    updatedAt: Date!
+  }
+    
+  input CreateStaffInput {  
+    staffType: String!
+    qualification: String
+    experiance: Int!
+    salary: Float!
+  }
+
+  input UpdateStaffInput {  
+    staffType: String
+    qualification: String
+    experiance: Int
+    salary: Float
+  }
 
   type Query {
     me: User
@@ -202,6 +226,8 @@ const typeDefs = gql`
     patients: [Patient!]!
     hospitals: [Hospital!]!
     hospital(id: ID!): Hospital
+    staffList: [Staff!]!
+    staff(id: ID!): Staff
   }
 
   type Mutation {
@@ -219,6 +245,10 @@ const typeDefs = gql`
     updateHospital(id: ID!, input: UpdateHospitalInput!): Hospital!
     deleteHospital(id: ID!): Boolean!
     setHospitalStatus(id: ID!, isActive: Boolean!): Hospital!
+    CreateStaffInput(input: CreateStaffInput!): Staff!
+    UpdateStaffInput(id: ID!, input: UpdateStaffInput!): Staff!
+    deleteStaff(id: ID!): Boolean!
+    setStaffStatus(id: ID!, isActive: Boolean!): Staff!
   }
 `;
 
